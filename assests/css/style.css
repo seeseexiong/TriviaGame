@@ -1,0 +1,48 @@
+body {
+    background-image: url("../images/halloween.jpg") 
+ 
+}
+
+#container1, #container2 {
+    background-color: rgba(27, 15, 4, 0.815);
+    padding-bottom: 60px;
+
+    width: 900px; 
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+#mainHeader {
+    color: wheat;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 60px;
+}
+
+p {
+    color: wheat;
+    text-align: center;
+}
+
+
+label {
+    color: wheat;
+}
+
+#btn {
+    margin-top: 70px;
+    display:block; 
+    width:20%; 
+    margin:0 auto; 
+    
+    background-color: orange;
+    font-size: 30px;
+}
+
+
+
+
+
+/* Have to do @media query to become mobile responsive */
