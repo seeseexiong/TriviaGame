@@ -14,7 +14,7 @@ body {
     margin-bottom: 40px;
 }
 
-#mainHeader {
+.mainHeader {
     color: wheat;
     text-align: center;
     padding-top: 40px;
