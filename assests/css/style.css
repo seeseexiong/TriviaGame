@@ -18,6 +18,7 @@ body {
     color: wheat;
     text-align: center;
     padding-top: 40px;
+    padding-bottom: 40px;
     font-size: 60px;
 }
 #timer {
@@ -42,11 +43,9 @@ ul {
 
 
 #btn {
-    margin-top: 70px;
     display:block; 
     width:20%; 
-    margin:0 auto; 
-    
+    margin:auto; 
     background-color: orange;
     font-size: 30px;
 }
