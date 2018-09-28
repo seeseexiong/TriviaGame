@@ -39,7 +39,9 @@ ul {
     padding-top: 0px;
 }
 
-
+p {
+    color: rgba(245, 109, 19, 0.747);
+}
 
 
 #btn {

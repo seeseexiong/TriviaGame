@@ -10,7 +10,7 @@ $(document).ready(function(){
     
 //The game is time-limited to 120 seconds. This "TIME-LIMITED" will be set to count down which will be 
 //changing values turn TIME-LIMITED into a variable
-let timeLimit = 3;    
+let timeLimit = 60;    
 let intervalId;
 let question1 = document.quiz.question1.value;
 //when the button is click hide #container2 & #container#3 and show l#container1. Timer starts counting down - 
