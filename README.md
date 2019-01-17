@@ -3,7 +3,7 @@ This is a Halloween trivia game.  You have 60 seconds to answer 14 multiple-choi
 The game starts once you click on the "start" button.
 
 ## Getting Started
-Click [PLAY]{https://seeseexiong.github.io/TriviaGame/} to get started!
+Click [PLAY](https://seeseexiong.github.io/TriviaGame) to get started!
 
 ## Built With
 * HTML/CSS - Built the wireframe
