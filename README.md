@@ -2,6 +2,7 @@
 This is a Halloween trivia game.  You have 60 seconds to answer 14 multiple-choice questions based on Halloween and it's origin!!! 
 The game starts once you click on the "start" button.
 
+![alt screenshot](https://github.com/seeseexiong/TriviaGame/blob/master/assests/images/TriviaGame.JPG)
 ## Getting Started
 Click [PLAY](https://seeseexiong.github.io/TriviaGame) to get started!
 
