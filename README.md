@@ -16,4 +16,4 @@ Click [PLAY](https://seeseexiong.github.io/TriviaGame) to get started!
 * See Xiong - _initial work_ - [seeseexiong]( https://github.com/seeseexiong)
 
 ## License
-This project is licensed under Trilogy/University of Minnesota
+This project is licensed under University of Minnesota
