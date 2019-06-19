@@ -2,20 +2,21 @@ let correctAnswer = 0;
 let incorrect = 0;
 let unanswered = 0;
 
+//The game is time-limited to 60 seconds. This "TIME-LIMITED" will be set to count down which will be 
+//changing values, turn TIME-LIMITED into a variable
+let timeLimit = 60;    
+let intervalId;
 
-//once DOM is open, we should see only #container1.  Hide all other containers
+//once DOM finished loading, we should see only #container1.  Hide all other containers
 $(document).ready(function(){
     $("#container2").hide();
     $("#container3").hide();
     
-//The game is time-limited to 120 seconds. This "TIME-LIMITED" will be set to count down which will be 
-//changing values turn TIME-LIMITED into a variable
-let timeLimit = 60;    
-let intervalId;
-let question1 = document.quiz.question1.value;
-//when the button is click hide #container2 & #container#3 and show l#container1. Timer starts counting down - 
+//when the #btn button is click hide #container1 and #container#3, and show #container2. Timer starts counting down - 
 //Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
     $("#btn").on("click", function() {
+        clearInterval(intervalId);
+        
         $("#container1").hide();
         $("#container2").show();
         $("#container3").hide();
@@ -32,7 +33,7 @@ let question1 = document.quiz.question1.value;
             if (timeLimit === 0) {
                 //...run the stop function.
                 stop();
-                
+
                 //after time is up, the document checks all the answers
                 let question1 = document.quiz.question1.value;
                     check(question1);
@@ -111,5 +112,5 @@ let question1 = document.quiz.question1.value;
     
 }) //<--- closes the $(document).ready function()
 
-//when time is up, all answer is submit to server side 
+//when time is up, all answer is submit to client side
 
