@@ -1,6 +1,12 @@
-let correctAnswer = 0;
-let incorrect = 0;
+let answers = ['a', 'c', 'b', 'a', 'b', 'c', 'a', 'b', 'a', 'b', 'c', 'a', 'c', 'b'];
+let numOfQuestions = 14;
+let score = 0;
+let wrong = 0;
 let unanswered = 0;
+
+let wrongAnswers = [];
+
+
 
 //The game is time-limited to 60 seconds. This "TIME-LIMITED" will be set to count down which will be 
 //changing values, turn TIME-LIMITED into a variable
@@ -13,10 +19,14 @@ $(document).ready(function(){
     $("#container3").hide();
     
 //when the #btn button is click hide #container1 and #container#3, and show #container2. Timer starts counting down - 
-//Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+//Clearing the intervalId prior to setting our new intervalId will avoid allow multiple instances.
     $("#btn").on("click", function() {
-        clearInterval(intervalId);
         
+        clearInterval(intervalId);
+
+        //display time on DOM
+        $("#timer").html("<h2>" + timeLimit + "</h2>");
+
         $("#container1").hide();
         $("#container2").show();
         $("#container3").hide();
@@ -26,88 +36,72 @@ $(document).ready(function(){
 
 //FUNCTIONS FOR ANSWERS START HERE =========================================================================
 
-        //a DECREMENT function to countdown
-        function decrement() {
-            timeLimit--;
-            $("#timer").html("<h2>" + timeLimit + "</h2>");
-            if (timeLimit === 0) {
-                //...run the stop function.
-                stop();
+    //a DECREMENT FUNCTION to countdown - - - - - - - - - - - - - - - - - - - - -
+    function decrement() {
+        timeLimit--;
+        //display time on DOM
+        $("#timer").html("<h2>" + timeLimit + "</h2>");
+        
+        //if timeLimit reaches 0, run the
+            //stop function to stop the timer and
+            //result function to return the results
+        if (timeLimit === 0) {
+            stop();
+            result();
+        }//<--closes the TIMELIMIT if statement
+    }//<--- closes the decrement function
 
-                //after time is up, the document checks all the answers
-                let question1 = document.quiz.question1.value;
-                    check(question1);
+    //a STOP FUNCTION stops the timmer - - - - - - - - - - - - - - - - - - - - - - 
+    function stop() {
+        clearInterval(intervalId);
+    }
 
-                let question2 = document.quiz.question2.value;
-                    check(question2);
+    function result() {
+        //reference to the chosen answer
+        let q1 = document.forms['quiz']['q1'].value;
+        let q2 = document.forms['quiz']['q2'].value;
+        let q3 = document.forms['quiz']['q3'].value;
+        let q4 = document.forms['quiz']['q4'].value;
+        let q5 = document.forms['quiz']['q5'].value;
+        let q6 = document.forms['quiz']['q6'].value;
+        let q7 = document.forms['quiz']['q7'].value;
+        let q8 = document.forms['quiz']['q8'].value;
+        let q9 = document.forms['quiz']['q9'].value;
+        let q10 = document.forms['quiz']['q10'].value;
+        let q11 = document.forms['quiz']['q11'].value;
+        let q12 = document.forms['quiz']['q12'].value;
+        let q13 = document.forms['quiz']['q13'].value;
+        let q14 = document.forms['quiz']['q14'].value;
 
-                let question3 = document.quiz.question3.value;
-                    check(question3);
-
-                let question4 = document.quiz.question4.value;
-                    check(question4);
-
-                let question5 = document.quiz.question5.value;
-                    check(question5);
-
-                let question6 = document.quiz.question6.value;
-                    check(question6);
-
-                let question7 = document.quiz.question7.value;
-                    check(question7);
-
-                let question8 = document.quiz.question8.value;
-                    check(question8);
-
-                let question9 = document.quiz.question9.value;
-                    check(question9);
-
-                let question10 = document.quiz.question10.value;
-                    check(question10);
-
-                let question11 = document.quiz.question11.value;
-                    check(question11);
-
-                let question12 = document.quiz.question12.value;
-                    check(question12);
-
-                let question13 = document.quiz.question12.value;
-                    check(question13);
-
-                let question14 = document.quiz.question12.value;
-                    check(question14);
-                    
+        //reference to the written questions
 
 
-                //show the result(contained in #container3).  Hide all other containers.
-                $("#container1").hide();
-                $("#container2").hide();
-                $("#container3").show();
+        //show container3
+        $("#container1").hide();
+        $("#container2").hide();
+        $("#container3").show();
 
-                //output the scores to DOM
-                $("#cAnswers").text("Correct Answers: " + correctAnswer );
-                $("#iAnswers").text("Incorrect Answers: " + incorrect );
-                $("#uAnswers").text("Unanswered: " + unanswered );
-            }//<--closes the TIMELIMIT if statement
-        }//<--- closes the decrement function
-
-        //a STOP funciton to stop the timer
-        function stop() {
-            clearInterval(intervalId);
-        }
-
-            //a funtion to TEST the answers****************************
-        function check(x) {
-            if (x === "Correct"){
-                correctAnswer++;
+        //loop through numOfQuestions
+        for ( let i = 1; i <= numOfQuestions; i++ ){
+            if (eval('q' + i) == answers[i - 1]) {
+                score++
             }
-            else if (x === "Wrong"){
-                incorrect++;
+            else if (eval('q' + i) == "") {
+                unanswered++
             }
             else {
-                unanswered++;
-            }
-        }//<--closes the CHECK function
+                wrong++;
+                wrongAnswers.push( eval('q'+ i) );
+            };
+        };
+
+        //print results on DOM
+        $('#cAnswers').text(score);
+        $('#iAnswers').text(wrong);
+        $('#uAnswers').text(unanswered);
+        console.log('Wrong on these questions: ' + wrongAnswers);
+
+    }
 
     
 }) //<--- closes the $(document).ready function()

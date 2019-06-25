@@ -21,28 +21,31 @@ body {
     padding-bottom: 40px;
     font-size: 60px;
 }
+
+h5 {
+    padding-top: 80px;
+}
+
 #timer {
     color: rgb(255, 255, 255);
     font-size: 30px;
     text-align: center;
 }
 
-h5, form, section {
+form, section {
     color: wheat;
-    text-align: center;
     padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-ul {
-    list-style-type: none;
-    color: wheat;
-    text-align: center;
-    padding-top: 0px;
+
+.radioInput {
+    margin-left: 30px;
 }
 
 p {
     color: rgba(245, 109, 19, 0.747);
 }
-
 
 #btn {
     display:block; 
