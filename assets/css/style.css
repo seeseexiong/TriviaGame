@@ -1,6 +1,5 @@
 body {
-    background-image: url("../images/halloween.jpg") 
- 
+    background-image: url("../images/halloween.jpg"); 
 }
 
 #container1, #container2, #container3 {
@@ -47,16 +46,36 @@ p {
     color: rgba(245, 109, 19, 0.747);
 }
 
+/* BUTTONS */
 #btn {
     display:block; 
     width:20%; 
     margin:auto; 
     background-color: orange;
     font-size: 30px;
+    border-radius: 10px;
+    border: outset 3px white;
+}
+#submit-btn {
+    display: block;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: orange;
+    border-radius: 10px;
+    border: outset 3px white;
 }
 
+#timer {
+    position: fixed;
+    left: 70%;
+    color: rgb(53, 182, 21);
+}
 
-
+#score {
+    text-align: center;
+    padding-bottom: 20px;
+}
 
 
 /* Have to do @media query to become mobile responsive */
